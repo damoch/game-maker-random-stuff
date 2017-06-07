@@ -26,6 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>image_alpha-=0.005;
+if(keyboard_check(ord('d')) || keyboard_check(ord('D'))){
+    x+=0.3;
+}
+
+if(keyboard_check(ord('a')) || keyboard_check(ord('A'))){
+    x-=0.3;
+}
 if(image_alpha&lt;0)instance_destroy();
 </string>
           </argument>

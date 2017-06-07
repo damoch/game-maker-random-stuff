@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>drop_rate = 16;
-value = random_range(0.2,0.5);
+            <string>
+scalling_speed = 0.0005;
+value = random_range(0.05,0.5);
+drop_rate = 32 * value;
 image_alpha = value;
 image_xscale = value;
 image_yscale = value;
@@ -54,8 +56,33 @@ image_yscale = value;
             <kind>1</kind>
             <string>var inst = instance_create(x,y,drop_trace);
 inst.image_alpha = value;
-inst.image_xscale = value;
-inst.image_yscale = value;
+inst.image_xscale = value/2;
+inst.image_yscale = value/2;
+
+if(keyboard_check(ord('w')) || keyboard_check(ord('W'))){
+    image_alpha+=scalling_speed;
+    image_xscale+=scalling_speed;
+    image_yscale+=scalling_speed;
+    value += scalling_speed;
+    drop_rate += scalling_speed;
+}
+
+if(keyboard_check(ord('s')) || keyboard_check(ord('S'))){
+    image_alpha-=scalling_speed;
+    image_xscale-=scalling_speed;
+    image_yscale-=scalling_speed;
+    value -= scalling_speed;
+    drop_rate -= scalling_speed;
+}
+
+if(keyboard_check(ord('d')) || keyboard_check(ord('D'))){
+    x+=0.3;
+}
+
+if(keyboard_check(ord('a')) || keyboard_check(ord('A'))){
+    x-=0.3;
+}
+
 y+=drop_rate;
 if(y&gt;room_height)instance_destroy();
 </string>

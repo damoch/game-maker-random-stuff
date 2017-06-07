@@ -26,8 +26,12 @@
       <object>objects\door</object>
       <object>objects\door_controller</object>
     </objects>
+    <objects name="spin">
+      <object>objects\spinner</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\spin</room>
     <room>rooms\scale_doors</room>
     <room>rooms\space</room>
     <room>rooms\rain</room>
